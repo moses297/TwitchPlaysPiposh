@@ -32,9 +32,9 @@ class Twitch:
 
     def _send_user_details(self):
         print("Sending our details to twitch...")
-        self.connection_to_twitch.send('USER %s\r\n' % self.user)
-        self.connection_to_twitch.send('PASS %s\r\n' % self.oauth)
-        self.connection_to_twitch.send('NICK %s\r\n' % self.user)
+        self.connection_to_twitch.send(f'USER {self.user}\r\n')
+        self.connection_to_twitch.send(f'PASS {self.oauth}\r\n')
+        self.connection_to_twitch.send(f'NICK {self.user}\r\n')
 
     def twitch_connect(self):
         print("Connected to twitch")
@@ -48,7 +48,7 @@ class Twitch:
         print("... they accepted our details!")
         print("Connected to twitch.tv!")
 
-        self.connection_to_twitch.send('JOIN #%s\r\n' % self.user)
+        self.connection_to_twitch.send('JOIN #{self.user}\r\n')
         self.connection_to_twitch.recv(1024)
 
     @staticmethod
