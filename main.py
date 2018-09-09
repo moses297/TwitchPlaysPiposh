@@ -38,7 +38,7 @@ def check_if_timeout(run_time):
 
 def check_for_new_messages(twitch):
     try:
-        return twitch.twitch_recieve_messages()
+        return twitch.twitch_receive_messages()
     except Exception as e:
         print(f"Got IO error in internal exception: {e}")
         rerun()
@@ -78,6 +78,7 @@ def execute_messages(messages):
             elif msg == "mup":
                 key_parser.mup()
             elif msg == "mdown":
+                # TODO: check with Moshe why this function does not exists in the class
                 key_parser.mrimdownght()
             elif "," in msg:
                 if msg.endswith("*2"):

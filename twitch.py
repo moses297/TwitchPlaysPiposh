@@ -69,7 +69,7 @@ class Twitch:
             'message': re.findall(r'PRIVMSG #[a-zA-Z0-9_]+ :(.+)', data)[0].decode('utf8')
         }
 
-    def twitch_recieve_messages(self, amount=1024):
+    def twitch_receive_messages(self, amount=1024):
         data = None
         try:
             data = self.connection_to_twitch.recv(amount)
