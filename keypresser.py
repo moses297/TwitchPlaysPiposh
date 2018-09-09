@@ -1,5 +1,7 @@
-import pyautogui
 from time import sleep
+
+import pyautogui
+
 
 class Keypresser:
     def one_mouse_click(self, x):
@@ -11,26 +13,26 @@ class Keypresser:
         pyautogui.click()
         sleep(0.1)
         pyautogui.click()
-        
+
     def triple_click_300(self):
-        pyautogui.moveTo((300,300))
+        pyautogui.moveTo((300, 300))
         pyautogui.click(clicks=3, interval=0.01)
         pyautogui.mouseDown()
         sleep(1)
         pyautogui.mouseUp()
-        pyautogui.dragTo((320,320))
+        pyautogui.dragTo((320, 320))
 
     def click(self):
         pyautogui.click()
 
     def mup(self):
-        pyautogui.moveRel(0,-10)
+        pyautogui.moveRel(0, -10)
 
     def mdown(self):
-        pyautogui.moveRel(0,10)
+        pyautogui.moveRel(0, 10)
 
     def mright(self):
-        pyautogui.moveRel(10,0)
+        pyautogui.moveRel(10, 0)
 
     def mleft(self):
-        pyautogui.moveRel(-10,0)
+        pyautogui.moveRel(-10, 0)
