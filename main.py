@@ -3,10 +3,8 @@ import json
 import os
 import time
 
-import keypresser
+from keypresser import Keypresser
 from twitch import Twitch
-
-key_parser = keypresser.Keypresser()
 
 commands = \
     {"settings": (50, 5), "suitcase": (100, 5),
@@ -56,37 +54,37 @@ def execute_messages(messages):
             if msg.startswith("!"):
                 if msg.startswith("!oc"):
                     x, y = msg[3:].split(",")
-                    key_parser.one_mouse_click((x, y))
+                    Keypresser.one_mouse_click((x, y))
                 elif msg.startswith("!dc"):
                     x, y = msg[3:].split(",")
-                    key_parser.two_mouse_click((x, y))
+                    Keypresser.two_mouse_click((x, y))
                 elif msg.startswith("endday"):
                     print("doing enday")
-                    key_parser.triple_click_300()
+                    Keypresser.triple_click_300()
 
             elif msg == "endday":
                 print("doing enday")
-                key_parser.triple_click_300()
+                Keypresser.triple_click_300()
             elif msg in commands.keys():
-                key_parser.one_mouse_click(commands[msg])
+                Keypresser.one_mouse_click(commands[msg])
             elif msg == "click":
-                key_parser.click()
+                Keypresser.click()
             elif msg == "mright":
-                key_parser.mright()
+                Keypresser.mright()
             elif msg == "mleft":
-                key_parser.mright()
+                Keypresser.mright()
             elif msg == "mup":
-                key_parser.mup()
+                Keypresser.mup()
             elif msg == "mdown":
                 # TODO: check with Moshe why this function does not exists in the class
-                key_parser.mrimdownght()
+                Keypresser.mrimdownght()
             elif "," in msg:
                 if msg.endswith("*2"):
                     x, y = msg.replace("*2", "").split(",")
-                    key_parser.one_mouse_click((x, y))
+                    Keypresser.one_mouse_click((x, y))
                 else:
                     x, y = msg.split(",")
-                    key_parser.one_mouse_click((x, y))
+                    Keypresser.one_mouse_click((x, y))
     except Exception:
         pass
 

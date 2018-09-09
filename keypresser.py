@@ -4,17 +4,21 @@ import pyautogui
 
 
 class Keypresser:
-    def one_mouse_click(self, x):
+
+    @staticmethod
+    def one_mouse_click(x):
         pyautogui.moveTo(x)
         pyautogui.click()
 
-    def two_mouse_click(self, x):
+    @staticmethod
+    def two_mouse_click(x):
         pyautogui.moveTo(x)
         pyautogui.click()
         sleep(0.1)
         pyautogui.click()
 
-    def triple_click_300(self):
+    @staticmethod
+    def triple_click_300():
         pyautogui.moveTo((300, 300))
         pyautogui.click(clicks=3, interval=0.01)
         pyautogui.mouseDown()
@@ -22,17 +26,22 @@ class Keypresser:
         pyautogui.mouseUp()
         pyautogui.dragTo((320, 320))
 
-    def click(self):
+    @staticmethod
+    def click():
         pyautogui.click()
 
-    def mup(self):
+    @staticmethod
+    def mup():
         pyautogui.moveRel(0, -10)
 
-    def mdown(self):
+    @staticmethod
+    def mdown():
         pyautogui.moveRel(0, 10)
 
-    def mright(self):
+    @staticmethod
+    def mright():
         pyautogui.moveRel(10, 0)
 
-    def mleft(self):
+    @staticmethod
+    def mleft():
         pyautogui.moveRel(-10, 0)
